@@ -1,15 +1,14 @@
 package com.dongfeng.andoird_votingsystem;
 
-import com.dongfeng.function.MessageDialog;
-import com.dongfeng.function.Transmission;
-
 import android.os.Bundle;
-import android.os.Message;
 import android.support.v7.app.ActionBarActivity;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.EditText;
+
+import com.dongfeng.function.MessageDialog;
+import com.dongfeng.function.Transmission;
 
 public class Register extends ActionBarActivity {
 

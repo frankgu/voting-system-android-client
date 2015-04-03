@@ -39,7 +39,7 @@ public class MainActivity extends ActionBarActivity {
 
 	// the login button onclick handler
 	public void login_button_click_event(View view) {
-		
+
 		// get the username and password from the view
 		EditText username_editText = (EditText) findViewById(R.id.Username);
 		EditText password_editText = (EditText) findViewById(R.id.Password);
@@ -48,24 +48,30 @@ public class MainActivity extends ActionBarActivity {
 		String password = password_editText.getText().toString();
 
 		if (username.isEmpty() || password.isEmpty()) {
-			
+
 			MessageDialog.getInstance().showErrorMessage(this,
 					"Please input the valid username/password");
-		
+
 		} else {
-			
+
 			// user login function
 			Intent intent = new Intent(this, Voting.class);
 			startActivity(intent);
 		}
 	}
-	
-	public void regist_button_click_event(View view){
-		
-		//redirect to user registration page
+
+	public void regist_button_click_event(View view) {
+
+		// redirect to user registration page
 		Intent intent = new Intent(this, Register.class);
 		startActivity(intent);
-		
+
+	}
+
+	public void login_setting_click_event(View view) {
+
+		// pop up the message box and show the
+		MessageDialog.getInstance().showSettingMessageDialog(this);
 	}
 
 }

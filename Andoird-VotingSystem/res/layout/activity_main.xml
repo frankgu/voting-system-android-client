@@ -62,4 +62,23 @@
         android:onClick="regist_button_click_event"
         android:text="Regist" />
 
+    <TextView
+        android:id="@+id/dialog_host_view"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_above="@+id/Username_View"
+        android:layout_centerHorizontal="true"
+        android:layout_marginBottom="32dp"
+        android:text="Large Text"
+        android:textAppearance="?android:attr/textAppearanceLarge" />
+
+    <Button
+        android:id="@+id/login_setting"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:layout_alignParentRight="true"
+        android:onClick="login_setting_click_event"
+        android:text="Setting" />
+
 </RelativeLayout>

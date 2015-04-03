@@ -16,8 +16,6 @@
         android:layout_centerVertical="true"
         android:ems="10"
         android:inputType="textPersonName" >
-
-        <requestFocus />
     </EditText>
 
     <EditText
