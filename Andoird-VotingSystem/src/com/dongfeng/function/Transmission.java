@@ -18,6 +18,11 @@ public class Transmission {
 	private DatagramSocket aSocket;
 	private int port;
 	private InetAddress host;
+	public String getDistrict() {
+		return district;
+	}
+
+	private String district;
 
 	private Transmission() {
 		// ------set the time out of the socket to 1000 ms
@@ -34,7 +39,10 @@ public class Transmission {
 		return trans;
 	}
 
-	// send the data, with valid crc32 code.
+	/*
+	 * send the data to the server (data), before that, you need to do the
+	 * initialization operation
+	 */
 	public String sendData(String data) {
 
 		return sendData(data, port, host, 1);
@@ -45,7 +53,7 @@ public class Transmission {
 	 * initialize the transmission, set up the port and the host for the
 	 * transmission
 	 */
-	public void initialization(int port, String host) {
+	public boolean initialization(int port, String host) {
 
 		this.port = port;
 		InetAddress aHost = null;
@@ -56,6 +64,20 @@ public class Transmission {
 			e.printStackTrace();
 		}
 		this.host = aHost;
+
+		// get the district name from the server
+		String district_replydata = sendData("7:", this.port, this.host, 1);
+		if (district_replydata.compareTo("null") == 0) {
+
+			//fail to connect to the server
+			return false;
+			
+		} else {
+			String[] district_array = district_replydata.split(":");
+			this.district = district_array[1];
+			return true;
+		}
+
 	}
 
 	private String sendData(String data, int port, InetAddress host, int count) {

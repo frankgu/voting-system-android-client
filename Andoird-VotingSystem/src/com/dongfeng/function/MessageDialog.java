@@ -1,9 +1,9 @@
 package com.dongfeng.function;
 
+import android.app.Activity;
 import android.app.AlertDialog;
+import android.content.Context;
 import android.content.DialogInterface;
-import android.content.DialogInterface.OnClickListener;
-import android.support.v7.app.ActionBarActivity;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.widget.EditText;
@@ -23,38 +23,44 @@ public class MessageDialog {
 
 	}
 
-	public void showErrorMessage(ActionBarActivity main, String message) {
+	public void showErrorMessage(Context main, String message) {
 
 		new AlertDialog.Builder(main).setTitle("Error").setMessage(message)
 				.setIcon(android.R.drawable.ic_dialog_alert)
 				.setPositiveButton("OK", null).create().show();
 	}
 
-	public void showSettingMessageDialog(final ActionBarActivity main) {
-		
-		// next to fix and continue
-		OnClickListener listener = new DialogInterface.OnClickListener() {
+	public void showSettingMessageDialog(final Activity main) {
 
-			EditText port_edittext = (EditText)main.findViewById(R.id.dialog_port_input);
-			EditText host_edittext = (EditText)main.findViewById(R.id.dialog_host_input);
-			
-			@Override
-			public void onClick(DialogInterface dialog, int which) {
-				
-				int port = Integer.parseInt(port_edittext.toString());
-				String host = host_edittext.toString();
-				
-				System.out.println(port);
-				System.out.println(host);
-			}
-			
-		};
-
+		AlertDialog.Builder builder = new AlertDialog.Builder(main);
 		LayoutInflater inflater = main.getLayoutInflater();
-		View dialoglayout = inflater.inflate(R.layout.dialog_setting, null, false);
-		new AlertDialog.Builder(main).setTitle("Input")
-				.setIcon(android.R.drawable.ic_dialog_info)
-				.setView(dialoglayout).setPositiveButton("Confirm", listener)
-				.setNegativeButton("Cancel", null).create().show();
+		final View main_view = inflater.inflate(R.layout.dialog_setting, null);
+		builder.setView(main_view);
+		builder.setTitle("Input").setIcon(android.R.drawable.ic_dialog_info)
+				.setNegativeButton("Cancel", null);
+		builder.setPositiveButton("confirm",
+				new DialogInterface.OnClickListener() {
+
+					@Override
+					public void onClick(DialogInterface dialog, int which) {
+						EditText port_edittext = (EditText) main_view
+								.findViewById(R.id.dialog_port_input);
+						EditText host_edittext = (EditText) main_view
+								.findViewById(R.id.dialog_host_input);
+
+						int port = Integer.parseInt(port_edittext.getText()
+								.toString());
+						String host = host_edittext.getText().toString();
+
+						// change the transmission file (port , host) and get
+						// the district info
+						if(!Transmission.getInstance().initialization(port, host))
+						{
+							showErrorMessage(main, "Fail to connect the server");
+						}
+						
+					}
+				});
+		builder.create().show();
 	}
 }

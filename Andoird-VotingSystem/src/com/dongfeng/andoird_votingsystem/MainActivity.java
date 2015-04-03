@@ -1,14 +1,18 @@
 package com.dongfeng.andoird_votingsystem;
 
 import android.content.Intent;
+import android.graphics.Color;
 import android.os.Bundle;
+import android.os.StrictMode;
 import android.support.v7.app.ActionBarActivity;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.EditText;
+import android.widget.TextView;
 
 import com.dongfeng.function.MessageDialog;
+import com.dongfeng.function.Transmission;
 
 public class MainActivity extends ActionBarActivity {
 
@@ -16,6 +20,23 @@ public class MainActivity extends ActionBarActivity {
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.activity_main);
+
+		StrictMode.ThreadPolicy policy = new StrictMode.ThreadPolicy.Builder()
+				.permitAll().build();
+		StrictMode.setThreadPolicy(policy);
+
+	}
+
+	@Override
+	public void onWindowFocusChanged(boolean hasFocus) {
+		super.onWindowFocusChanged(hasFocus);
+		// refresh the district
+		String district = Transmission.getInstance().getDistrict();
+		if (district != null) {
+			TextView district_view = (TextView) findViewById(R.id.main_district_view);
+			district_view.setText(district);
+			district_view.setTextColor(Color.GREEN);
+		}
 	}
 
 	@Override

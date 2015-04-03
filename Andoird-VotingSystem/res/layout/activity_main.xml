@@ -63,14 +63,15 @@
         android:text="Regist" />
 
     <TextView
-        android:id="@+id/dialog_host_view"
+        android:id="@+id/main_district_view"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_above="@+id/Username_View"
         android:layout_centerHorizontal="true"
         android:layout_marginBottom="32dp"
-        android:text="Large Text"
-        android:textAppearance="?android:attr/textAppearanceLarge" />
+        android:text="Not connected"
+        android:textAppearance="?android:attr/textAppearanceLarge" 
+        android:textColor="#B0171F"/>
 
     <Button
         android:id="@+id/login_setting"

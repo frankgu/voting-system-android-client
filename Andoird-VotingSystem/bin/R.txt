@@ -374,7 +374,6 @@ int id decor_content_parent 0x7f09002f
 int id default_activity_button 0x7f090024
 int id dialog 0x7f090019
 int id dialog_host_input 0x7f090055
-int id dialog_host_view 0x7f090045
 int id dialog_port_input 0x7f090054
 int id dialog_port_view 0x7f090053
 int id dialog_setting 0x7f090052
@@ -392,6 +391,7 @@ int id image 0x7f090023
 int id listMode 0x7f09000a
 int id list_item 0x7f090025
 int id login_setting 0x7f090046
+int id main_district_view 0x7f090045
 int id middle 0x7f09001d
 int id never 0x7f090017
 int id none 0x7f09000f
