@@ -364,7 +364,7 @@ int id action_menu_presenter 0x7f090006
 int id action_mode_bar 0x7f09002e
 int id action_mode_bar_stub 0x7f09002d
 int id action_mode_close_button 0x7f090020
-int id action_settings 0x7f090056
+int id action_settings 0x7f09005b
 int id activity_chooser_view_content 0x7f090021
 int id always 0x7f090014
 int id beginning 0x7f09001b
@@ -373,10 +373,10 @@ int id collapseActionView 0x7f090015
 int id decor_content_parent 0x7f09002f
 int id default_activity_button 0x7f090024
 int id dialog 0x7f090019
-int id dialog_host_input 0x7f090055
-int id dialog_port_input 0x7f090054
-int id dialog_port_view 0x7f090053
-int id dialog_setting 0x7f090052
+int id dialog_host_input 0x7f09005a
+int id dialog_port_input 0x7f090059
+int id dialog_port_view 0x7f090058
+int id dialog_setting 0x7f090057
 int id disableHome 0x7f09000d
 int id dropdown 0x7f09001a
 int id edit_query 0x7f090033
@@ -388,6 +388,7 @@ int id homeAsUp 0x7f09000e
 int id icon 0x7f090026
 int id ifRoom 0x7f090016
 int id image 0x7f090023
+int id linearlayout_buttongroup 0x7f090052
 int id listMode 0x7f09000a
 int id list_item 0x7f090025
 int id login_setting 0x7f090046
@@ -430,6 +431,10 @@ int id tabMode 0x7f09000c
 int id title 0x7f090027
 int id up 0x7f090001
 int id useLogo 0x7f090013
+int id voting_button 0x7f090055
+int id voting_candidate_view 0x7f090053
+int id voting_logout_button 0x7f090056
+int id voting_radiogroup_candidatelist 0x7f090054
 int id withText 0x7f090018
 int id wrap_content 0x7f090009
 int integer abc_config_activityDefaultDur 0x7f080001

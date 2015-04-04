@@ -46,26 +46,44 @@ public class Register extends ActionBarActivity {
 		EditText lastname_editext = (EditText) findViewById(R.id.register_lastname);
 		EditText address_editext = (EditText) findViewById(R.id.register_address);
 
-		if (username_editext.toString().isEmpty()
-				|| password_editext.toString().isEmpty()
-				|| firstname_editext.toString().isEmpty()
-				|| lastname_editext.toString().isEmpty()
-				|| address_editext.toString().isEmpty()) {
+		if (username_editext.getText().toString().isEmpty()
+				|| password_editext.getText().toString().isEmpty()
+				|| firstname_editext.getText().toString().isEmpty()
+				|| lastname_editext.getText().toString().isEmpty()
+				|| address_editext.getText().toString().isEmpty()) {
 
 			// if the user fail to input some value, pop up the error message
 			MessageDialog.getInstance().showErrorMessage(this,
 					"Please fill in all the information");
-			
+
 		} else {
 
-			String data = "1:1:" + username_editext.toString() + ":"
-					+ lastname_editext.toString() + ":"
-					+ firstname_editext.toString() + ":"
-					+ address_editext.toString() + ":"
-					+ password_editext.toString();
-			
-			Transmission.getInstance().sendData(data);
+			String data = "1:1:" + username_editext.getText().toString() + ":"
+					+ lastname_editext.getText().toString() + ":"
+					+ firstname_editext.getText().toString() + ":"
+					+ address_editext.getText().toString() + ":"
+					+ password_editext.getText().toString();
 
+			String reply_data = Transmission.getInstance().sendData(data);
+			String[] reply_datas = reply_data.split(":");
+			if (reply_data.compareTo("null") == 0) {
+				// fail to connect to the server
+				MessageDialog.getInstance().showErrorMessage(this,
+						"Fail to connect the server");
+
+			} else {
+				if (reply_datas[0].compareTo("1") == 0) {
+					// show the error message
+					MessageDialog.getInstance().showErrorMessage(this,
+							reply_datas[1]);
+				} else {
+					// successfully register
+					MessageDialog.getInstance().showSuccessMessage(this,
+							"Successfully registered");
+					// redirect back to the main page
+					super.onBackPressed();
+				}
+			}
 		}
 
 	}

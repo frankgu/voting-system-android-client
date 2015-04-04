@@ -18,6 +18,7 @@ public class Transmission {
 	private DatagramSocket aSocket;
 	private int port;
 	private InetAddress host;
+
 	public String getDistrict() {
 		return district;
 	}
@@ -67,13 +68,15 @@ public class Transmission {
 
 		// get the district name from the server
 		String district_replydata = sendData("7:", this.port, this.host, 1);
-		if (district_replydata.compareTo("null") == 0) {
+		String[] district_array = district_replydata.split(":");
 
-			//fail to connect to the server
+		if (district_replydata.compareTo("null") == 0
+				|| district_array[0].compareTo("1") == 0) {
+
+			// fail to connect to the server
 			return false;
-			
+
 		} else {
-			String[] district_array = district_replydata.split(":");
 			this.district = district_array[1];
 			return true;
 		}

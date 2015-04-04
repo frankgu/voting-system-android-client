@@ -30,6 +30,13 @@ public class MessageDialog {
 				.setPositiveButton("OK", null).create().show();
 	}
 
+	public void showSuccessMessage(Context main, String message) {
+
+		new AlertDialog.Builder(main).setTitle("Success").setMessage(message)
+				.setPositiveButton("OK", null).create().show();
+
+	}
+
 	public void showSettingMessageDialog(final Activity main) {
 
 		AlertDialog.Builder builder = new AlertDialog.Builder(main);
@@ -54,11 +61,11 @@ public class MessageDialog {
 
 						// change the transmission file (port , host) and get
 						// the district info
-						if(!Transmission.getInstance().initialization(port, host))
-						{
+						if (!Transmission.getInstance().initialization(port,
+								host)) {
 							showErrorMessage(main, "Fail to connect the server");
 						}
-						
+
 					}
 				});
 		builder.create().show();

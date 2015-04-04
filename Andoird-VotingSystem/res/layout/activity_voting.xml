@@ -8,4 +8,54 @@
     android:paddingTop="@dimen/activity_vertical_margin"
     tools:context="com.dongfeng.andoird_votingsystem.Voting" >
 
+    <ScrollView
+        android:layout_width="fill_parent"
+        android:layout_height="fill_parent"
+        android:layout_above="@+id/linearlayout_buttongroup"
+        android:layout_below="@+id/voting_candidate_view"
+        android:layout_centerHorizontal="true" >
+        
+        <RadioGroup
+        android:id="@+id/voting_radiogroup_candidatelist"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="vertical" />
+        
+    </ScrollView>
+
+    <TextView
+        android:id="@+id/voting_candidate_view"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentTop="true"
+        android:layout_centerHorizontal="true"
+        android:text="Not Vote"
+        android:textAppearance="?android:attr/textAppearanceLarge"
+        android:textColor="#B0171F" />
+
+    <LinearLayout
+        android:id="@+id/linearlayout_buttongroup"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:layout_centerHorizontal="true"
+        android:layout_marginBottom="20dp"
+        android:orientation="horizontal" >
+
+        <Button
+            android:id="@+id/voting_button"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="20dp"
+            android:onClick="voting_button_click_event"
+            android:text="Vote" />
+
+        <Button
+            android:id="@+id/voting_logout_button"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:onClick="voting_logout_button_click_event"
+            android:text="logout" />
+    </LinearLayout>
+
 </RelativeLayout>
