@@ -17,7 +17,8 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:ems="10"
-        android:inputType="number" />
+        android:inputType="number"
+        android:singleLine="true" />
 
     <TextView
         android:id="@+id/main_district_view"
@@ -29,7 +30,7 @@
         android:id="@+id/dialog_host_input"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:ems="10" />
-
+        android:ems="10"
+        android:singleLine="true" />
 
 </LinearLayout>

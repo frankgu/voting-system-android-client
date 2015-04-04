@@ -9,14 +9,13 @@
     tools:context="com.dongfeng.andoird_votingsystem.Register" >
 
     <EditText
-        android:id="@+id/register_FLName"
+        android:id="@+id/register_username"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_centerHorizontal="true"
-        android:layout_centerVertical="true"
+        android:layout_above="@+id/register_password_view"
+        android:layout_alignLeft="@+id/register_password_view"
         android:ems="10"
-        android:inputType="textPersonName" >
-    </EditText>
+        android:singleLine="true" />
 
     <EditText
         android:id="@+id/register_password"
@@ -25,7 +24,39 @@
         android:layout_above="@+id/register_firstname_view"
         android:layout_alignLeft="@+id/register_firstname_view"
         android:ems="10"
-        android:inputType="textPassword" />
+        android:inputType="textPassword"
+        android:singleLine="true" />
+
+    <EditText
+        android:id="@+id/register_FLName"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerHorizontal="true"
+        android:layout_centerVertical="true"
+        android:ems="10"
+        android:inputType="textPersonName"
+        android:singleLine="true" >
+    </EditText>
+
+    <EditText
+        android:id="@+id/register_lastname"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignLeft="@+id/register_lastname_view"
+        android:layout_below="@+id/register_lastname_view"
+        android:ems="10"
+        android:inputType="textPersonName"
+        android:singleLine="true" />
+
+    <EditText
+        android:id="@+id/register_address"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignLeft="@+id/register_address_view"
+        android:layout_below="@+id/register_address_view"
+        android:ems="10"
+        android:inputType="textPostalAddress"
+        android:singleLine="true" />
 
     <TextView
         android:id="@+id/register_username_view"
@@ -43,14 +74,6 @@
         android:layout_alignLeft="@+id/register_password"
         android:text="Password" />
 
-    <EditText
-        android:id="@+id/register_username"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_above="@+id/register_password_view"
-        android:layout_alignLeft="@+id/register_password_view"
-        android:ems="10" />
-
     <TextView
         android:id="@+id/register_firstname_view"
         android:layout_width="wrap_content"
@@ -59,23 +82,14 @@
         android:layout_alignLeft="@+id/register_FLName"
         android:text="First name" />
 
-    <EditText
-        android:id="@+id/register_address"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignLeft="@+id/register_address_view"
-        android:layout_below="@+id/register_address_view"
-        android:ems="10"
-        android:inputType="textPostalAddress" />
-
     <Button
         android:id="@+id/register_regist_button"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_below="@+id/register_address"
         android:layout_centerHorizontal="true"
-        android:text="Regist" 
-        android:onClick="register_regist_button_click_event"/>
+        android:onClick="register_regist_button_click_event"
+        android:text="Regist" />
 
     <TextView
         android:id="@+id/register_lastname_view"
@@ -84,15 +98,6 @@
         android:layout_alignLeft="@+id/register_FLName"
         android:layout_below="@+id/register_FLName"
         android:text="Last Name" />
-
-    <EditText
-        android:id="@+id/register_lastname"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignLeft="@+id/register_lastname_view"
-        android:layout_below="@+id/register_lastname_view"
-        android:ems="10"
-        android:inputType="textPersonName" />
 
     <TextView
         android:id="@+id/register_address_view"

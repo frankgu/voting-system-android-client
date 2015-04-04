@@ -55,15 +55,23 @@ public class MessageDialog {
 						EditText host_edittext = (EditText) main_view
 								.findViewById(R.id.dialog_host_input);
 
-						int port = Integer.parseInt(port_edittext.getText()
-								.toString());
-						String host = host_edittext.getText().toString();
+						if (port_edittext.getText().toString().isEmpty()
+								|| host_edittext.getText().toString().isEmpty()) {
+							showErrorMessage(main,
+									"Please input the port and host");
+						} else {
+							int port = Integer.parseInt(port_edittext.getText()
+									.toString());
+							String host = host_edittext.getText().toString();
 
-						// change the transmission file (port , host) and get
-						// the district info
-						if (!Transmission.getInstance().initialization(port,
-								host)) {
-							showErrorMessage(main, "Fail to connect the server");
+							// change the transmission file (port , host) and
+							// get
+							// the district info
+							if (!Transmission.getInstance().initialization(
+									port, host)) {
+								showErrorMessage(main,
+										"Fail to connect the server");
+							}
 						}
 
 					}

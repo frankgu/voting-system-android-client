@@ -9,6 +9,16 @@
     tools:context="com.dongfeng.andoird_votingsystem.MainActivity" >
 
     <EditText
+        android:id="@+id/Username"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_above="@+id/Password"
+        android:layout_alignLeft="@+id/Password"
+        android:layout_marginBottom="27dp"
+        android:ems="10"
+        android:singleLine="true" />
+
+    <EditText
         android:id="@+id/Password"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
@@ -33,15 +43,6 @@
         android:layout_alignLeft="@+id/Username"
         android:text="Username" />
 
-    <EditText
-        android:id="@+id/Username"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_above="@+id/Password"
-        android:layout_alignLeft="@+id/Password"
-        android:layout_marginBottom="27dp"
-        android:ems="10" />
-
     <Button
         android:id="@+id/Login_button"
         android:layout_width="wrap_content"
@@ -49,8 +50,8 @@
         android:layout_alignLeft="@+id/Password"
         android:layout_below="@+id/Password"
         android:layout_marginTop="26dp"
-        android:text="Login" 
-        android:onClick="login_button_click_event"/>
+        android:onClick="login_button_click_event"
+        android:text="Login" />
 
     <Button
         android:id="@+id/Login_Regist_button"
@@ -70,8 +71,8 @@
         android:layout_centerHorizontal="true"
         android:layout_marginBottom="32dp"
         android:text="Not connected"
-        android:textAppearance="?android:attr/textAppearanceLarge" 
-        android:textColor="#B0171F"/>
+        android:textAppearance="?android:attr/textAppearanceLarge"
+        android:textColor="#B0171F" />
 
     <Button
         android:id="@+id/login_setting"

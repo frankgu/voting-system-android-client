@@ -80,8 +80,6 @@ public class Register extends ActionBarActivity {
 					// successfully register
 					MessageDialog.getInstance().showSuccessMessage(this,
 							"Successfully registered");
-					// redirect back to the main page
-					super.onBackPressed();
 				}
 			}
 		}
